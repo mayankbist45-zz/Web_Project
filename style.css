@@ -1,0 +1,34 @@
+body {
+  background-color: aliceblue;
+}
+.ml2{
+    color: rgb(23, 11, 194);
+    font-weight: bold;
+    font-size: 100px;
+    border-color: black;
+}
+.jumbotron {
+  background-color: aliceblue;
+}
+.commonPara {
+  font-family: "Itim", cursive;
+  text-align: center;
+  font-size: 33px;
+}
+.megacard {
+  padding: 10px 10px 10px 10px;
+}
+.details {
+  font-family: "Itim", cursive;
+}
+.footer{
+    justify-content: center;
+    text-align: center;
+}
+
+#gmail-logo {
+    margin-left: 40px;
+}
+#quote{
+    color: crimson;
+}
