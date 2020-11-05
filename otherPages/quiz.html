@@ -17,7 +17,7 @@
         <h1><span id="number"></span> <span id="question"></span></h1>
     </div> -->
     <nav class="navbar navbar-light bg-light">
-        <button class="btn btn-outline-success" id="timer">--:--</button>
+        <button class="btn btn-outline-success" id="timer">00:20</button>
     </nav>
     <audio id="myAudio">
         <source src="../sounds/alert.mp3" type="audio/mp3">
@@ -42,6 +42,11 @@
         <button class="btn btn-primary choice options" onclick="gotTheAnswer(this)" style="visibility: hidden;" id="2">B). <span></span></button>
         <button class="btn btn-primary choice options" onclick="gotTheAnswer(this)" style="visibility: hidden;" id="3">C). <span></span></button>
         <button class="btn btn-primary choice options" onclick="gotTheAnswer(this)" style="visibility: hidden;" id="4">D). <span></span></button>
+    </div>
+
+    <div class = "end">
+        <p id="score"></p>
+        <p id="complement"></p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="quiz-script.js"></script>
