@@ -1,15 +1,14 @@
-let questions = [];
+let questions = [],
+  solutions = [];
 let curList = ["1", "2", "3", "4"];
+let interval,
+  correct = 0;
 
 function playAudio() {
   document.getElementById("myAudio").play();
 }
-//shuffle credits :- https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 async function getProblems() {
   const response = await fetch(
@@ -18,20 +17,31 @@ async function getProblems() {
   const data = await response.json();
   data.results.forEach((question) => {
     let tp = [];
+    let cur = 1,
+      time = getRandomInt(1, 4);
     question.incorrect_answers.forEach((ele) => {
+      if (cur == time) {
+        solutions.push(cur.toString());
+        tp.push(question.correct_answer);
+        cur++;
+      }
       tp.push(ele);
+      cur++;
     });
-    tp.push(question.correct_answer);
-    shuffle(tp);
+    if (cur == 4)
+      tp.push(question.correct_answer), solutions.push(cur.toString());
     questions.push([question.question, tp]);
   });
+  console.log(questions);
+  console.log(solutions);
   doquiz();
 }
 function doTimer() {
+  // todo need to change it to 20
   let count = 20;
-  var interval = setInterval(function () {
+  interval = setInterval(function () {
     if (count == 10) {
-      playAudio();
+      // playAudio();
       document.getElementById("timer").classList.add("btn-outline-danger");
       document.getElementById("timer").classList.remove("btn-outline-success");
     }
@@ -75,6 +85,7 @@ function doquiz() {
     (now + 1).toString() + ")."
   ).toString();
   question.textContent = questions[now][0];
+  // TODO: do not animate text is sucks find something else
   // animateQuestion();
   const choice = document.getElementsByClassName("choice");
   Object.keys(choice).forEach((ele) => {
@@ -86,4 +97,15 @@ function doquiz() {
   doTimer();
   now++;
   // if (now < questions.length) setTimeout(doquiz, 3000);
+}
+function resetThings() {
+  clearInterval(interval);
+  document.getElementById("timer").innerHTML = "--:--";
+  document.getElementById("timer").classList.remove("btn-outline-danger");
+  document.getElementById("timer").classList.add("btn-outline-success");
+  if (now < questions.length) doquiz();
+}
+function gotTheAnswer(elem) { 
+  if (elem.id == solutions[now - 1]) correct++;
+  resetThings();
 }
