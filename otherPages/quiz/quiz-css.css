@@ -2,16 +2,15 @@
 
 body,
 html {
-  background-image: url('../../Images/quiz-back.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
-  /* background: radial-gradient(
+  background: radial-gradient(
     circle,
     rgba(255, 252, 0, 1) 0%,
     rgba(240, 237, 23, 1) 100%
-  ); */
+  );
   height: 100%;
 }
 
