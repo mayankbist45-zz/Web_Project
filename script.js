@@ -13,25 +13,40 @@ anime.timeline().add({
   duration: 950,
   delay: (el, i) => 70 * i,
 });
+textWrapper = document.querySelector(".ml6 .letters");
+textWrapper.innerHTML = textWrapper.textContent.replace(
+  /\S/g,
+  "<span class='letter'>$&</span>"
+);
+anime.timeline({ loop: false }).add({
+  targets: ".ml6 .letter",
+  translateY: ["1.1em", 0],
+  translateZ: 0,
+  duration: 750,
+  delay: (el, i) => 50 * i,
+});
 
 var quotes = [
-  '“The secret of getting ahead is getting started.” – Mark Twain',
-  '“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney.',
-  '“Do one thing every day that scares you.”― Eleanor Roosevelt',
-  '“Whatever you are, be a good one.” ― Abraham Lincoln',
-  '“Impossible is just an opinion.” – Paulo Coelho',
+  "“The secret of getting ahead is getting started.” – Mark Twain",
+  "“All our dreams can come true, if we have the courage to pursue them.” – Walt Disney.",
+  "“Do one thing every day that scares you.”― Eleanor Roosevelt",
+  "“Whatever you are, be a good one.” ― Abraham Lincoln",
+  "“Impossible is just an opinion.” – Paulo Coelho",
 ];
 let now = 0;
 function randomQuotes() {
   var idx = now++;
-  document.getElementById("changeQuote").innerHTML = quotes[idx];
-  if(now >= quotes.length)now = 0;
+  var el = document.getElementById("changeQuote");
+  el.classList.add("show");
+  el.classList.remove("hide");
+  el.innerHTML = quotes[idx];
+  if (now >= quotes.length) now = 0;
   setTimeout(randomQuotes, 3000);
 }
 randomQuotes();
 
 // async function getQuote(){
-//   const response = await fetch('http://quotes.rest/qod.json');  
+//   const response = await fetch('http://quotes.rest/qod.json');
 //   const data = await response.json();
 //   quotes.push(data.contents.quotes[0].quote);
 //   console.log(data.contents.quotes[0].quote);

@@ -1,14 +1,15 @@
 body {
-  background-color: aliceblue;
+  background-color: white;
 }
-.ml2{
-    color: rgb(23, 11, 194);
-    font-weight: bold;
-    font-size: 100px;
-    border-color: black;
+.ml2 {
+  color: rgb(23, 11, 194);
+  font-weight: bold;
+  font-size: 100px;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  border-color: black;
 }
 .jumbotron {
-  background-color: aliceblue;
+  background-color: white;
 }
 .commonPara {
   font-family: "Itim", cursive;
@@ -21,14 +22,35 @@ body {
 .details {
   font-family: "Itim", cursive;
 }
-.footer{
-    justify-content: center;
-    text-align: center;
+.footer {
+  justify-content: center;
+  text-align: center;
 }
 
 #gmail-logo {
-    margin-left: 40px;
+  margin-left: 40px;
 }
-#quote{
-    color: crimson;
+#quote {
+  color: crimson;
+}
+.ml6 {
+  position: relative;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  line-height: 1em;
+}
+.show {
+  transition: opacity 400ms;
+}
+.hide {
+  opacity: 0;
 }
