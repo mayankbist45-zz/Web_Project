@@ -108,18 +108,18 @@ function gotTheAnswer(elem) {
 function showScore() {
   let lt = [correct, questions.length];
   localStorage.setItem("result", lt);
-  window.location.href = "../result/result.html";
-  // document.getElementsByClassName("container")[0].remove();
-  // document.getElementById("timer").innerHTML = "Results";
-  // const choice = document.getElementsByClassName("choice");
-  // Object.keys(choice).forEach((ele) => {
-  //   choice[ele].remove();
-  // });
-  // document.getElementById("score").innerHTML =
-  //   "Your score is " + correct.toString() + " out of 10";
-  // var tp = document.getElementById("complement");
-  // if (correct < 3) tp.innerHTML = "You are dumb";
-  // else if (correct < 6) tp.innerHTML = "U are okeish";
-  // else if (correct < 10) tp.innerHTML = "U are some kind of weird cheater";
-  // else tp.innerHTML = "ok ok you are a genius";
+  // window.location.href = "../result/result.html";
+  document.getElementsByClassName("container")[0].remove();
+  document.getElementById("timer").innerHTML = "Results";
+  const choice = document.getElementsByClassName("choice");
+  Object.keys(choice).forEach((ele) => {
+    choice[ele].remove();
+  });
+  document.getElementById("score").innerHTML =
+    "Your score is " + correct.toString() + " out of 10";
+  var tp = document.getElementById("complement");
+  if (correct < 3) tp.innerHTML = "You are dumb";
+  else if (correct < 6) tp.innerHTML = "U are okeish";
+  else if (correct < 10) tp.innerHTML = "U are some kind of weird cheater";
+  else tp.innerHTML = "ok ok you are a genius";
 }
