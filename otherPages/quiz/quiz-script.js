@@ -1,6 +1,7 @@
 let questions = [];
 let solutions = [];
 let curList = ["1", "2", "3", "4"];
+let curList2 = ["A). ", "B). ", "C). ", "D). "];
 let interval;
 let correct = 0;
 
@@ -10,6 +11,7 @@ function playAudio() {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 async function getProblems() {
   const response = await fetch(
     "https://opentdb.com/api.php?amount=10&category=18&difficulty=hard&type=multiple"
@@ -79,14 +81,20 @@ function doquiz() {
     (now + 1).toString() + ")."
   ).toString();
   question.textContent = questions[now][0];
-  // TODO: do not animate text is sucks find something else
+  // TODO: do not animate text it sucks find something else
   // animateQuestion();
   const choice = document.getElementsByClassName("choice");
   Object.keys(choice).forEach((ele) => {
     choice[ele].style.visibility = "visible";
   });
+  let mx = 0;
+  for (let i = 0; i < 4; i++)
+    if (mx < questions[now][1][i].length) mx = questions[now][1][i].length;
+
   for (let i = 0; i < 4; i++) {
-    document.getElementById(curList[i]).innerHTML = questions[now][1][i];
+    document.getElementById(curList[i]).style.width = mx;
+    document.getElementById(curList[i]).innerHTML =
+      curList2[i] + questions[now][1][i];
   }
   doTimer();
   now++;
