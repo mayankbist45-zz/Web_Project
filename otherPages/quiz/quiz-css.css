@@ -20,6 +20,16 @@ body {
   align-items: center;
   font-family: "Luckiest Guy", cursive;
 }
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centering {
+  text-align: center;
+}
 
 h1,
 button {
@@ -45,6 +55,14 @@ button {
   font-size: 2em;
   justify-content: center;
   text-align: center;
+}
+#home {
+  display: flex;
+  flex-direction: right;
+  font-size: 2em;
+  justify-content: center;
+  text-align: center;
+  color: white;
 }
 .ml11 {
   font-weight: 700;

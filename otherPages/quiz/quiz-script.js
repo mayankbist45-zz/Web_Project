@@ -126,7 +126,7 @@ function showScore() {
   document.getElementById("score").innerHTML =
     "Your score is " + correct.toString() + " out of 10";
   var tp = document.getElementById("complement");
-  if (correct < 3) tp.innerHTML = "You are dumb";
+  if (correct < 3) tp.innerHTML = "You need more practice.";
   else if (correct < 6) tp.innerHTML = "U are okeish";
   else if (correct < 10) tp.innerHTML = "U are some kind of weird cheater";
   else tp.innerHTML = "ok ok you are a genius";

@@ -31,7 +31,7 @@ function randomQuotes() {
   if (now >= quotes.length) now = 0;
   setTimeout(randomQuotes, 3000);
 }
-getQuote();
+// getQuote();
 randomQuotes();
 
 // async function getQuote(){
